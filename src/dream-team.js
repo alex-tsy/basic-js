@@ -7,10 +7,8 @@ module.exports = function createDreamTeam(members) {
     let dreamTeamName = '';
     members.forEach(element => {
         if (typeof (element) == 'string') {
-            console.log(`element:  ${element}`);
             dreamTeamName += element.trim().substring(0, 1).toUpperCase();
         }
     });
-    dreamTeamName = dreamTeamName.split('').sort().join('');
-    return dreamTeamName;
+    return dreamTeamName.split('').sort().join('');
 };

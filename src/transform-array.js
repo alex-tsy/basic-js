@@ -7,8 +7,8 @@ module.exports = function transform(arr) {
     let transformed = new Array();
 
     for (let i = 0; i < arr.length; i++) {
-        
-        switch (arr[i]) {        
+
+        switch (arr[i]) {
             case '--discard-next':
                 i++;
                 transformed.push(undefined);
@@ -32,6 +32,6 @@ module.exports = function transform(arr) {
                 transformed.push(arr[i]);
         }
     };
-    transformed = transformed.filter(e => e != undefined);
-    return transformed;
+
+    return transformed.filter(e => e != undefined);
 };

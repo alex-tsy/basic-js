@@ -10,11 +10,11 @@ module.exports = function repeater(str, options) {
         additionStr = '';
 
     for (let i = 0; i < additionRepeatTimes; i++) {
-        if (additionRepeatTimes - 1 !== i) {
-            additionStr += addition + additionSeparator;
-        } else {
+        if (additionRepeatTimes - 1 == i) {
             additionStr += addition;
+            continue;
         }
+        additionStr += addition + additionSeparator;
     }
 
     for (let i = 0; i < repeatTimes; i++) {

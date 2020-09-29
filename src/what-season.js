@@ -4,9 +4,6 @@ module.exports = function getSeason(date) {
     if (date === undefined) {
         return 'Unable to determine the time of year!';
     }
-    if (!(date instanceof Date)) {
-        throw new Error('Not implemented');
-    }
     date.getTime();
     let month = date.getMonth();
     switch (month) {

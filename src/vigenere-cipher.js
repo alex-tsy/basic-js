@@ -1,5 +1,7 @@
 const CustomError = require("../extensions/custom-error");
-
+const ASCII_CODE_A = 65;
+const ASCII_CODE_Z = 90;
+const ABC_LENGTH = 26;
 class VigenereCipheringMachine {
     constructor(order = true) {
         this.reverse = !order;
@@ -17,7 +19,7 @@ class VigenereCipheringMachine {
 
         for (let i = 0; i < message.length; i++) {
             let currentKey = key[keyIndex % key.length];
-            if (message.charCodeAt(i) >= 65 && message.charCodeAt(i) <= 90) {
+            if (message.charCodeAt(i) >= ASCII_CODE_A && message.charCodeAt(i) <= ASCII_CODE_Z) {
                 let encCode = func(message.charCodeAt(i), currentKey);
                 enc += String.fromCharCode(encCode);
                 keyIndex++;
@@ -30,11 +32,11 @@ class VigenereCipheringMachine {
     }
 
     enc(currentSymbol, currentKey) {
-        return (currentSymbol + currentKey.charCodeAt(0)) % 26 + 65;
+        return (currentSymbol + currentKey.charCodeAt(0)) % ABC_LENGTH + ASCII_CODE_A;
     }
 
     dec(currentSymbol, currentKey) {
-        return (currentSymbol + 26 - currentKey.charCodeAt(0)) % 26 + 65;
+        return (currentSymbol + ABC_LENGTH - currentKey.charCodeAt(0)) % ABC_LENGTH + ASCII_CODE_A;
     }
 
     encrypt(message, key) {
